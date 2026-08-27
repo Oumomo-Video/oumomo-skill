@@ -43,7 +43,16 @@ continuing.
    `video_replica_search`.
 2. For category requests or product-link requests without a selected reference,
    translate a non-English category into a concise English ecommerce search
-   term, then call `video_replica_search`. Every displayed
+   term. Call `video_replica_search` with that term in `words` and the target
+   market in `region`. For example, use exactly
+   `oumomo-agent tool video_replica_search --args '{"region":"US","words":"electric mosquito swatter"}'`
+   for a US electric-mosquito-swatter request. Do not invent category IDs or
+   claim that free-text search requires a numeric category. Check the returned
+   business `code`; `code: 0` is a successful search even when unrelated items
+   also appear in the result. Select only items whose description or hashtags
+   match the requested product. If the first term has no relevant results, retry
+   with one concise English synonym such as `electric fly swatter` or
+   `bug zapper racket`. Every displayed
    recommendation must include its real `videoUrl`, `embedUrl`, or `url` as a
    clickable/copyable link. Describe recommendations briefly using the returned
    metadata and the user's actual product context.
