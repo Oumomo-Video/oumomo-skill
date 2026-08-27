@@ -74,6 +74,9 @@ continuing.
      based on the product and selected reference, but do not silently apply a
      default. The final review must contain every value explicitly; never
      replace it with a vague question such as "Should I start?".
+   - Use user-facing names in the review, not API codes. For example, show
+     `English (United States)` rather than `EN_US`; convert the confirmed name
+     to the CLI language code only when constructing the tool arguments.
    - Use only supported duration values: 10, 15, or 30 seconds. Use only
      supported quality values: 480p or 720p.
    - Keep Prompt and requested changes optional; state the proposed values even
