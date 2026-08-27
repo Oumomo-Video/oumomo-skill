@@ -62,11 +62,46 @@ continuing.
    changes. Otherwise, create the Prompt from the selected reference analysis
    and available product materials. Use an empty `userRequirements` value when
    the user has no additional changes.
-5. Show the selected reference URL, seconds, language, ratio, quality,
-   generation mode, Prompt, and video
-   description together for confirmation. Call
-   `video_replica_generate_video` once after structured confirmation,
+5. Before generation, collect and present a structured generation review. The
+   following values require an explicit user choice or approval: target
+   country/market, language, duration, ratio, quality, and generation mode.
+   Target country/market is the creative-market context; use it when preparing
+   the final Prompt and ensure the chosen language is appropriate for it.
+   Also include the selected reference URL, primary product image, Prompt,
+   optional changes, and a brief video description.
+
+   - Ask for every missing required generation value. You may recommend a value
+     based on the product and selected reference, but do not silently apply a
+     default. The final review must contain every value explicitly; never
+     replace it with a vague question such as "Should I start?".
+   - Use only supported duration values: 10, 15, or 30 seconds. Use only
+     supported quality values: 480p or 720p.
+   - Keep Prompt and requested changes optional; state the proposed values even
+     when they are empty.
+   - Do not call `video_replica_generate_video`, prepare a `--confirm` command,
+     or imply that generation has started until the user explicitly approves
+     this complete review. A generic earlier request such as "make this video"
+     is not approval of the final parameters.
+
+   Chinese review format:
+
+   ```text
+   生成参数确认
+   - 参考视频：<resolved TikTok URL>
+   - 商品主图：<fileNo 或图片说明>
+   - 目标国家/市场：<country/market>
+   - 视频语言：<language>
+   - 时长：<10/15/30 秒>
+   - 比例：<9:16 或 16:9>
+   - 清晰度：<480p 或 720p>
+   - 生成模式：<mode/version>
+   - 复刻 Prompt：<text 或未提供>
+   - 修改要求：<text 或无>
+   - 视频说明：<text>
+   ```
+
+6. Only after explicit approval, call `video_replica_generate_video` once,
    passing the numeric `videoId` when known; otherwise pass the TikTok URL as
-   `videoUrl`. Pass the confirmed Prompt as `replicaPrompt` and requested
-   changes as `userRequirements`,
-   then poll with `replica_progress` and `replica_project_result`.
+   `videoUrl`. Pass the approved Prompt as `replicaPrompt` and requested
+   changes as `userRequirements`, then poll with `replica_progress` and
+   `replica_project_result`.
