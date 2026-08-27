@@ -27,6 +27,7 @@ continuing.
 ## Tools
 
 - `url_to_video_fetch_product` (only for product-detail URLs)
+- `tiktok_resolve_reference`
 - `video_replica_search`
 - `video_replica_generate_video`
 - `replica_progress`
@@ -36,8 +37,7 @@ continuing.
 
 1. Classify a supplied URL before calling a tool:
    - For a TikTok reference-video URL, including `https://vt.tiktok.com/...`,
-     read [tiktok-reference-url.md](references/tiktok-reference-url.md). Treat
-     it as the selected reference. Do not call `video_replica_search`.
+     call `tiktok_resolve_reference` first, read [tiktok-reference-url.md](references/tiktok-reference-url.md), and treat the returned canonical URL as the selected reference. Do not call `video_replica_search`.
    - For a TikTok Shop/FastMoss product-detail URL, call
    `url_to_video_fetch_product` first and use its product/category context for
    `video_replica_search`.
