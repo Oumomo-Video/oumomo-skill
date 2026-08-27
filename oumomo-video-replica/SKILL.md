@@ -18,6 +18,11 @@ Run declared adapters with `oumomo-agent tool <name> --args '<JSON>'`.
 Use `oumomo-agent image upload --file <path>` for local images. Do not call a
 remote agent or chat endpoint.
 
+Before the first CLI call, run `command -v oumomo-agent` and
+`oumomo-agent auth status`. If the CLI is missing or the session is not
+authenticated, read [setup.md](references/setup.md) and complete setup before
+continuing.
+
 ## Tools
 
 - `url_to_video_fetch_product` (only for product-detail URLs)
@@ -28,12 +33,16 @@ remote agent or chat endpoint.
 
 ## Workflow
 
-1. If the user provides a TikTok Shop/FastMoss product-detail URL, call
+1. Classify a supplied URL before calling a tool:
+   - For a TikTok reference-video URL, including `https://vt.tiktok.com/...`,
+     read [tiktok-reference-url.md](references/tiktok-reference-url.md). Treat
+     it as the selected reference. Do not call `video_replica_search`.
+   - For a TikTok Shop/FastMoss product-detail URL, call
    `url_to_video_fetch_product` first and use its product/category context for
    `video_replica_search`.
-2. For category requests, reference-video URLs, or a direct Link to Video
-   request, translate a non-English category into a concise English ecommerce
-   search term, then call `video_replica_search` as appropriate. Every displayed
+2. For category requests or product-link requests without a selected reference,
+   translate a non-English category into a concise English ecommerce search
+   term, then call `video_replica_search`. Every displayed
    recommendation must include its real `videoUrl`, `embedUrl`, or `url` as a
    clickable/copyable link. Describe recommendations briefly using the returned
    metadata and the user's actual product context.
@@ -48,9 +57,11 @@ remote agent or chat endpoint.
    changes. Otherwise, create the Prompt from the selected reference analysis
    and available product materials. Use an empty `userRequirements` value when
    the user has no additional changes.
-5. Show seconds, language, ratio, quality, generation mode, Prompt, and video
+5. Show the selected reference URL, seconds, language, ratio, quality,
+   generation mode, Prompt, and video
    description together for confirmation. Call
    `video_replica_generate_video` once after structured confirmation,
-   passing the confirmed Prompt as `replicaPrompt` and requested changes as
-   `userRequirements`,
+   passing the numeric `videoId` when known; otherwise pass the TikTok URL as
+   `videoUrl`. Pass the confirmed Prompt as `replicaPrompt` and requested
+   changes as `userRequirements`,
    then poll with `replica_progress` and `replica_project_result`.
