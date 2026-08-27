@@ -9,7 +9,7 @@
 ```bash
 npm install -g oumomo-agent
 oumomo-agent setup
-npx skills add Oumomo-Video/oumomo-skill --skill oumomo-video-replica --agent '*' -g -y
+npx skills add Oumomo-Video/oumomo-skill
 ```
 
 安装后请重启 Agent。使用 `oumomo-agent --version` 检查 CLI，使用 `npx skills ls -g` 检查 Skill。
@@ -28,7 +28,7 @@ npx skills add Oumomo-Video/oumomo-skill --skill oumomo-video-replica --agent '*
 
 1. 安装 CLI：运行 `npm install -g oumomo-agent`。
 2. 登录 Oumomo：运行 `oumomo-agent setup`，并让我在打开的浏览器中完成登录。
-3. ��装配套 Skill：运行 `npx skills add Oumomo-Video/oumomo-skill --skill oumomo-video-replica --agent '*' -g -y`。
+3. ��装配套 Skill：运行 `npx skills add Oumomo-Video/oumomo-skill`。
 
 完成后重启 Agent，并告诉我是否已经准备好。之后严格按照 Skill 调用 oumomo-agent：根据我的商品链接、品类或参考视频推荐真实可访问的爆款视频；确认参考方向和商品素材后，整理复刻 Prompt 与生成参数供我确认；只有在我明确确认后才提交视频生成。不要调用远程 Agent 或 Chat 接口。
 ```

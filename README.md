@@ -9,7 +9,7 @@ Turn a product category, product link, or TikTok reference into a ready-to-gener
 ```bash
 npm install -g oumomo-agent
 oumomo-agent setup
-npx skills add Oumomo-Video/oumomo-skill --skill oumomo-video-replica --agent '*' -g -y
+npx skills add Oumomo-Video/oumomo-skill
 ```
 
 Restart your agent after installation. Verify the CLI with `oumomo-agent --version` and verify the Skill with `npx skills ls -g`.
@@ -28,7 +28,7 @@ Set up Oumomo CLI so you can help me remake viral ecommerce videos and turn prod
 
 1. Install the CLI: run `npm install -g oumomo-agent`.
 2. Authenticate: run `oumomo-agent setup` and let me complete sign-in in the browser it opens.
-3. Install the companion Skill: run `npx skills add Oumomo-Video/oumomo-skill --skill oumomo-video-replica --agent '*' -g -y`.
+3. Install the companion Skill: run `npx skills add Oumomo-Video/oumomo-skill`.
 
 Once that is done, restart the agent and let me know when it is ready.
 ```
