@@ -33,6 +33,3 @@ oumomo-agent setup
 
 This opens the Oumomo browser login. Wait for setup to finish before calling
 business tools.
-
-The current CLI does not provide `oumomo-agent login` or
-`oumomo-agent auth login`. Do not invent or run either command.

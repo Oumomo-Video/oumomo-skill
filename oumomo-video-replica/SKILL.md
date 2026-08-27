@@ -15,8 +15,9 @@ image-only generation, deduplication, or publishing.
 ## CLI
 
 Run declared adapters with `oumomo-agent tool <name> --args '<JSON>'`.
-Use `oumomo-agent image upload --file <path>` for local images. Do not call a
-remote agent or chat endpoint.
+Use `oumomo-agent image upload --file <path>` for one local image, or repeat
+`--file` to upload several images in one command. Do not call a remote agent
+or chat endpoint.
 
 Before the first CLI call, run `command -v oumomo-agent` and
 `oumomo-agent auth status`. If the CLI is missing or the session is not
@@ -51,6 +52,10 @@ continuing.
    product image is available, ask for one. A clean multi-angle white-background
    image set is preferred but optional. Ask whether the user wants to provide a
    remake Prompt or any changes; both are optional.
+
+   Upload all supplied local product images together with one command, repeating
+   `--file` for each path. Preserve every returned `fileNo`; use the clearest
+   primary product image as `productImageFileNo` for the current video submit.
 
    Chinese collection copy when product images already exist: `已收到商品图。你也可以补充多角度白底图、复刻 Prompt 或想调整的地方；这些都可以不填，我会根据参考视频和现有商品素材整理生成方案，再给你确认。`
 4. If the user provides a remake Prompt, preserve it and apply their requested
