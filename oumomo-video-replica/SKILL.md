@@ -56,7 +56,10 @@ continuing.
    recommendation must include its real `videoUrl`, `embedUrl`, or `url` as a
    clickable/copyable link. Describe recommendations briefly using the returned
    metadata and the user's actual product context.
-   If no usable link exists, ask for a reference URL.
+   If the search returns no relevant items, retry with one precise English
+   synonym while keeping the requested market. Do not ask the user for a
+   reference URL merely because category search was empty. Ask only for a
+   clearer product name or market when the product term itself is missing.
 3. Reuse product images already available in the current conversation. If no
    product image is available, ask for one. A clean multi-angle white-background
    image set is preferred but optional. Ask whether the user wants to provide a
