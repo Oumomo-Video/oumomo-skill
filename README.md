@@ -12,7 +12,27 @@
   <a href="https://github.com/Oumomo-Video/oumomo-skill/stargazers"><img src="https://img.shields.io/github/stars/Oumomo-Video/oumomo-skill?style=social" alt="Stars" /></a>
 </p>
 
-Turn a product category, product link, or TikTok reference into a ready-to-generate ecommerce video from your AI agent. The Oumomo Skill guides the conversation; the lightweight `oumomo-agent` CLI signs in, uploads product images, and calls Oumomo's video APIs. No OpenAI API key or MCP key is required.
+**Remake proven viral ads around your own product — from inside your AI agent.**
+
+Oumomo Skills are agent workflows for cross-border e-commerce sellers on TikTok Shop. Instead of starting from a blank canvas, you start from a viral video that has already proven it sells, and Oumomo rebuilds it around *your* product, *your* images, and *your* offer.
+
+## The idea: viral remake
+
+A viral product video is not luck — it is a proven creative format: the hook, the pacing, the shot structure, the CTA. A **viral remake** keeps the part that converts and swaps in your product.
+
+Oumomo handles the hard parts inside your agent:
+
+1. **Find a proven format** — send a TikTok link you already trust, or ask Oumomo to surface real, accessible viral references for your product and target market (US, EU, SEA…).
+2. **Feed in your product** — product images, optional multi-angle white-background shots, a remake prompt, and any changes you want.
+3. **Confirm, then generate** — review duration, language, aspect ratio, quality, and the final prompt. Nothing is charged until you explicitly confirm.
+
+## What the skill does inside your agent
+
+- **Real references only** — recommends viral TikToks that actually exist and are accessible. No hallucinated links.
+- **Link-aware** — send a TikTok video link and it is treated as *the chosen reference*, not overwritten by search results.
+- **Reads product links** — paste a TikTok Shop or FastMoss product-detail URL and Oumomo suggests reference directions suited to that product.
+- **Zero key juggling** — no OpenAI API key, no MCP key. The lightweight `oumomo-agent` CLI signs you in via browser and talks to Oumomo's backend, which manages the model and video generation.
+- **Paid only after confirmation** — generation parameters are presented for review, and the video is submitted only after your explicit `y/N`.
 
 ## Install
 
@@ -22,18 +42,11 @@ oumomo-agent setup
 npx skills add Oumomo-Video/oumomo-skill
 ```
 
-Restart your agent after installation. Verify the CLI with `oumomo-agent --version` and verify the Skill with `npx skills ls -g`.
-
-## What it does
-
-- Finds real, accessible viral reference videos for a product and target market.
-- Treats a TikTok video link as the chosen reference instead of replacing it with search results.
-- Reads supported TikTok Shop and FastMoss product links and recommends suitable creative references.
-- Uploads one or several product images, prepares the remake Prompt and generation settings, and submits only after explicit confirmation.
+Restart your agent after installation. Verify with `oumomo-agent --version` and `npx skills ls -g`.
 
 ## Skills in this repository
 
-- [`skills/oumomo-video-replica`](skills/oumomo-video-replica/SKILL.md) — viral video remake and product-link-to-video workflows, installed together with `npx skills add Oumomo-Video/oumomo-skill`.
+- [`skills/oumomo-video-replica`](skills/oumomo-video-replica/SKILL.md) — the viral remake and product-link-to-video workflows, installed together with `npx skills add Oumomo-Video/oumomo-skill`.
 
 ## Give this to your agent
 
@@ -47,20 +60,9 @@ Set up Oumomo CLI so you can help me remake viral ecommerce videos and turn prod
 Once that is done, restart the agent and let me know when it is ready.
 ```
 
----
+## Why a skill + CLI split?
 
-## Related
-
-- CLI repo: [Oumomo-Video/oumomo-cli](https://github.com/Oumomo-Video/oumomo-cli)
-- npm package: [oumomo-agent](https://www.npmjs.com/package/oumomo-agent)
-- Website: [oumomo.ai](https://www.oumomo.ai)
-
-## License
-
-[MIT](LICENSE)
-
-
----
+The skill file (SKILL.md) is public and versioned here; it teaches your agent the workflow. The CLI is a thin client: prompts, adapters, and business execution stay on Oumomo servers, so nothing sensitive ships to the terminal. See [docs/distribution.md](https://github.com/Oumomo-Video/oumomo-cli/blob/main/docs/distribution.md) in the CLI repo for the design.
 
 ## Related
 

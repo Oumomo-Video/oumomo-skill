@@ -12,7 +12,27 @@
   <a href="https://github.com/Oumomo-Video/oumomo-skill/stargazers"><img src="https://img.shields.io/github/stars/Oumomo-Video/oumomo-skill?style=social" alt="Stars" /></a>
 </p>
 
-在 AI Agent 里，从商品品类、商品链接或 TikTok 参考视频直接开始创作带货视频。Oumomo Skill 负责引导创作流程，轻量的 `oumomo-agent` CLI 负责登录、上传商品图片和调用 Oumomo 视频接口；用户不需要配置 OpenAI API Key 或 MCP Key。
+**在 AI Agent 里，把已经验证能出单的爆款带货视频，换成你自己的商品重新生成。**
+
+Oumomo Skills 是给跨境电商卖家（TikTok Shop / 独立站）准备的 Agent 工作流。不用从零开始想创意——直接从一条已经被市场验证过的爆款视频出发，Oumomo 把它的转化结构复刻到**你的**商品、**你的**素材、**你的**卖点上。
+
+## 核心思路：爆款复刻（Viral Remake）
+
+一条爆款带货视频背后不是运气，而是一套被验证过的创意结构：前 3 秒的钩子、节奏、镜头脚本、CTA。**爆款复刻**要做的，就是保留这套「能转化的结构」，把商品换成你的。
+
+在 Agent 里，Oumomo 把难做的部分都接管了：
+
+1. **找到被验证过的结构** — 你自己发一条信任的 TikTok 链接；或者让 Oumomo 按你的商品和目标市场（美国、欧洲、东南亚……）推荐真实可访问的爆款参考。
+2. **喂进你的商品** — 商品图、可选的多角度白底图、复刻 Prompt 和修改要求。
+3. **确认后再生成** — 时长、语言、画幅、质量、最终 Prompt 全部摆在你面前。你不说确认，一分钱都不会扣。
+
+## 装进 Agent 之后能做什么
+
+- **只推荐真实存在的参考** — 推荐的爆款视频全部真实可访问，不编造链接。
+- **链接直达** — 你发一条 TikTok 视频链接，它就是选定的参考，不会被搜索结果顶掉。
+- **读得懂商品链接** — 发一条 TikTok Shop 或 FastMoss 商品详情页链接，Oumomo 会基于这个商品推荐合适的创意方向。
+- **零 Key 配置** — 不需要 OpenAI API Key，也不需要 MCP Key。轻量的 `oumomo-agent` CLI 负责浏览器登录，模型和视频生成都在 Oumomo 后端完成。
+- **确认后才付费** — 生成参数完整呈现，`y/N` 确认之后才提交，没有隐性扣费。
 
 ## 安装
 
@@ -22,18 +42,11 @@ oumomo-agent setup
 npx skills add Oumomo-Video/oumomo-skill
 ```
 
-安装后请重启 Agent。使用 `oumomo-agent --version` 检查 CLI，使用 `npx skills ls -g` 检查 Skill。
-
-## 可以做什么
-
-- 按商品和目标市场推荐真实、可访问的爆款参考视频。
-- 收到 TikTok 视频链接时直接将其作为复刻参考，不会误走爆款搜索。
-- 读取支持的 TikTok Shop 或 FastMoss 商品链接，并推荐适合该商品的参考方向。
-- 上传一张或多张商品图，整理复刻 Prompt 和生成参数，只有在用户明确确认后才提交生成。
+安装后重启 Agent。用 `oumomo-agent --version` 检查 CLI，用 `npx skills ls -g` 检查 Skill。
 
 ## 仓库中的 Skill
 
-- [`skills/oumomo-video-replica`](skills/oumomo-video-replica/SKILL.md) — 爆款视频复刻与商品链接转视频两条工作流，随 `npx skills add Oumomo-Video/oumomo-skill` 一并安装。
+- [`skills/oumomo-video-replica`](skills/oumomo-video-replica/SKILL.md) — 爆款复刻与商品链接转视频两条工作流，随 `npx skills add Oumomo-Video/oumomo-skill` 一并安装。
 
 ## 把这段话发给你的 Agent
 
@@ -47,20 +60,9 @@ npx skills add Oumomo-Video/oumomo-skill
 完成后重启 Agent，并告诉我是否已经准备好。之后严格按照 Skill 调用 oumomo-agent：根据我的商品链接、品类或参考视频推荐真实可访问的爆款视频；确认参考方向和商品素材后，整理复刻 Prompt 与生成参数供我确认；只有在我明确确认后才提交视频生成。不要调用远程 Agent 或 Chat 接口。
 ```
 
----
+## 为什么拆成 Skill + CLI？
 
-## 相关链接
-
-- CLI 仓库：[Oumomo-Video/oumomo-cli](https://github.com/Oumomo-Video/oumomo-cli)
-- npm 包：[oumomo-agent](https://www.npmjs.com/package/oumomo-agent)
-- 官网：[oumomo.ai](https://www.oumomo.ai)
-
-## 开源协议
-
-[MIT](LICENSE)
-
-
----
+Skill 文件（SKILL.md）公开并在这个仓库里版本化，教你的 Agent 掌握工作流；CLI 是一个只做登录、传图、调用授权工具的瘦客户端——Prompt、适配器和业务执行都留在 Oumomo 服务端，任何敏感的东西都不会下发到终端。设计细节见 CLI 仓库的 [docs/distribution.md](https://github.com/Oumomo-Video/oumomo-cli/blob/main/docs/distribution.md)。
 
 ## 相关链接
 
