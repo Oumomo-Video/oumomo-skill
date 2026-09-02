@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    # Weekly link-rot check, Monday 09:31 UTC.
+    - cron: "31 9 * * 1"
+  workflow_dispatch:
+
+jobs:
+  validate:
+    name: Validate skill structure
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Validate skills
+        run: python scripts/validate_skill.py
+
+  links:
+    name: Check docs links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # tiktok.com blocks bots with 403; short codes like
+          # vt.tiktok.com/SHORT_CODE/ are placeholders, not real links.
+          args: >-
+            --no-progress
+            --max-retries 3
+            --exclude 'tiktok\.com'
+            './README.md'
+            './README.zh-CN.md'
+            './skills/**/*.md'
+          format: markdown
+          fail: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  install-smoke:
+    name: Smoke test npx skills add
+    # Installs from the repo's default branch on GitHub — this verifies the
+    # real end-user path of `npx skills add Oumomo-Video/oumomo-skill`.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install like an end user
+        run: npx --yes skills add Oumomo-Video/oumomo-skill --yes
+
+      - name: Show installed skill files
+        run: find . -path ./.git -prune -o -name "SKILL.md" -print
