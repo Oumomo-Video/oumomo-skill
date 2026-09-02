@@ -2,6 +2,16 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
+<p align="center">
+  <img src="docs/oumomo-logo.jpg" width="110" alt="Oumomo logo" />
+</p>
+
+<p align="center">
+  <a href="https://github.com/Oumomo-Video/oumomo-cli"><img src="https://img.shields.io/badge/CLI-oumomo--cli-24292f?logo=github" alt="oumomo-cli" /></a>
+  <a href="https://www.npmjs.com/package/oumomo-agent"><img src="https://img.shields.io/npm/v/oumomo-agent" alt="npm version" /></a>
+  <a href="https://github.com/Oumomo-Video/oumomo-skill/stargazers"><img src="https://img.shields.io/github/stars/Oumomo-Video/oumomo-skill?style=social" alt="Stars" /></a>
+</p>
+
 在 AI Agent 里，从商品品类、商品链接或 TikTok 参考视频直接开始创作带货视频。Oumomo Skill 负责引导创作流程，轻量的 `oumomo-agent` CLI 负责登录、上传商品图片和调用 Oumomo 视频接口；用户不需要配置 OpenAI API Key 或 MCP Key。
 
 ## 安装
@@ -32,7 +42,32 @@ npx skills add Oumomo-Video/oumomo-skill
 
 1. 安装 CLI：运行 `npm install -g oumomo-agent`。
 2. 登录 Oumomo：运行 `oumomo-agent setup`，并让我在打开的浏览器中完成登录。
-3. ��装配套 Skill：运行 `npx skills add Oumomo-Video/oumomo-skill`。
+3. 安装配套 Skill：运行 `npx skills add Oumomo-Video/oumomo-skill`。
 
 完成后重启 Agent，并告诉我是否已经准备好。之后严格按照 Skill 调用 oumomo-agent：根据我的商品链接、品类或参考视频推荐真实可访问的爆款视频；确认参考方向和商品素材后，整理复刻 Prompt 与生成参数供我确认；只有在我明确确认后才提交视频生成。不要调用远程 Agent 或 Chat 接口。
 ```
+
+---
+
+## 相关链接
+
+- CLI 仓库：[Oumomo-Video/oumomo-cli](https://github.com/Oumomo-Video/oumomo-cli)
+- npm 包：[oumomo-agent](https://www.npmjs.com/package/oumomo-agent)
+- 官网：[oumomo.ai](https://www.oumomo.ai)
+
+## 开源协议
+
+[MIT](LICENSE)
+
+
+---
+
+## 相关链接
+
+- CLI 仓库：[Oumomo-Video/oumomo-cli](https://github.com/Oumomo-Video/oumomo-cli)
+- npm 包：[oumomo-agent](https://www.npmjs.com/package/oumomo-agent)
+- 官网：[oumomo.ai](https://www.oumomo.ai)
+
+## 开源协议
+
+[MIT](LICENSE)

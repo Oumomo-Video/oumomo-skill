@@ -2,6 +2,16 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
+<p align="center">
+  <img src="docs/oumomo-logo.jpg" width="110" alt="Oumomo logo" />
+</p>
+
+<p align="center">
+  <a href="https://github.com/Oumomo-Video/oumomo-cli"><img src="https://img.shields.io/badge/CLI-oumomo--cli-24292f?logo=github" alt="oumomo-cli" /></a>
+  <a href="https://www.npmjs.com/package/oumomo-agent"><img src="https://img.shields.io/npm/v/oumomo-agent" alt="npm version" /></a>
+  <a href="https://github.com/Oumomo-Video/oumomo-skill/stargazers"><img src="https://img.shields.io/github/stars/Oumomo-Video/oumomo-skill?style=social" alt="Stars" /></a>
+</p>
+
 Turn a product category, product link, or TikTok reference into a ready-to-generate ecommerce video from your AI agent. The Oumomo Skill guides the conversation; the lightweight `oumomo-agent` CLI signs in, uploads product images, and calls Oumomo's video APIs. No OpenAI API key or MCP key is required.
 
 ## Install
@@ -36,3 +46,28 @@ Set up Oumomo CLI so you can help me remake viral ecommerce videos and turn prod
 
 Once that is done, restart the agent and let me know when it is ready.
 ```
+
+---
+
+## Related
+
+- CLI repo: [Oumomo-Video/oumomo-cli](https://github.com/Oumomo-Video/oumomo-cli)
+- npm package: [oumomo-agent](https://www.npmjs.com/package/oumomo-agent)
+- Website: [oumomo.ai](https://www.oumomo.ai)
+
+## License
+
+[MIT](LICENSE)
+
+
+---
+
+## Related
+
+- CLI repo: [Oumomo-Video/oumomo-cli](https://github.com/Oumomo-Video/oumomo-cli)
+- npm package: [oumomo-agent](https://www.npmjs.com/package/oumomo-agent)
+- Website: [oumomo.ai](https://www.oumomo.ai)
+
+## License
+
+[MIT](LICENSE)
