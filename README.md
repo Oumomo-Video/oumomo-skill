@@ -34,7 +34,27 @@ Oumomo handles the hard parts inside your agent:
 - **Zero key juggling** — no OpenAI API key, no MCP key. The lightweight `oumomo-agent` CLI signs you in via browser and talks to Oumomo's backend, which manages the model and video generation.
 - **Paid only after confirmation** — generation parameters are presented for review, and the video is submitted only after your explicit `y/N`.
 
-## Install
+## Quick start
+
+Copy this and give it to your agent — it installs the CLI, signs you in, and installs the Skill for you:
+
+```text
+Set up Oumomo CLI so you can help me remake viral ecommerce videos and turn product links into videos.
+
+1. Install the CLI: run `npm install -g oumomo-agent`.
+2. Authenticate: run `oumomo-agent setup` and let me complete sign-in in the browser it opens.
+3. Install the companion Skill: run `npx skills add Oumomo-Video/oumomo-skill`.
+
+Once that is done, restart the agent and let me know when it is ready.
+```
+
+Once it is set up, just talk:
+
+```text
+Find high-performing US TikTok references for my teeth-whitening strips and remake one for my product.
+```
+
+**Prefer to install manually?**
 
 ```bash
 npm install -g oumomo-agent
@@ -47,18 +67,6 @@ Restart your agent after installation. Verify with `oumomo-agent --version` and 
 ## Skills in this repository
 
 - [`skills/oumomo-video-replica`](skills/oumomo-video-replica/SKILL.md) — the viral remake and product-link-to-video workflows, installed together with `npx skills add Oumomo-Video/oumomo-skill`.
-
-## Give this to your agent
-
-```text
-Set up Oumomo CLI so you can help me remake viral ecommerce videos and turn product links into videos.
-
-1. Install the CLI: run `npm install -g oumomo-agent`.
-2. Authenticate: run `oumomo-agent setup` and let me complete sign-in in the browser it opens.
-3. Install the companion Skill: run `npx skills add Oumomo-Video/oumomo-skill`.
-
-Once that is done, restart the agent and let me know when it is ready.
-```
 
 ## Why a skill + CLI split?
 

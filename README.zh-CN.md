@@ -34,7 +34,27 @@ Oumomo Skills 是给跨境电商卖家（TikTok Shop / 独立站）准备的 Age
 - **零 Key 配置** — 不需要 OpenAI API Key，也不需要 MCP Key。轻量的 `oumomo-agent` CLI 负责浏览器登录，模型和视频生成都在 Oumomo 后端完成。
 - **确认后才付费** — 生成参数完整呈现，`y/N` 确认之后才提交，没有隐性扣费。
 
-## 安装
+## 快速开始
+
+把下面这段话直接丢给你的 Agent——装 CLI、浏览器登录、装 Skill，它全包了：
+
+```text
+请安装并使用 Oumomo CLI，帮我完成爆款视频复刻和商品链接生成视频。
+
+1. 安装 CLI：运行 `npm install -g oumomo-agent`。
+2. 登录 Oumomo：运行 `oumomo-agent setup`，并让我在打开的浏览器中完成登录。
+3. 安装配套 Skill：运行 `npx skills add Oumomo-Video/oumomo-skill`。
+
+完成后重启 Agent，并告诉我是否已经准备好。
+```
+
+装好之后，直接说人话：
+
+```text
+帮我找几条美国市场高赞的牙齿美白 TikTok 参考视频，选一条给我的商品复刻。
+```
+
+**想手动安装？**
 
 ```bash
 npm install -g oumomo-agent
@@ -47,18 +67,6 @@ npx skills add Oumomo-Video/oumomo-skill
 ## 仓库中的 Skill
 
 - [`skills/oumomo-video-replica`](skills/oumomo-video-replica/SKILL.md) — 爆款复刻与商品链接转视频两条工作流，随 `npx skills add Oumomo-Video/oumomo-skill` 一并安装。
-
-## 把这段话发给你的 Agent
-
-```text
-请安装并使用 Oumomo CLI，帮我完成爆款视频复刻和商品链接生成视频。
-
-1. 安装 CLI：运行 `npm install -g oumomo-agent`。
-2. 登录 Oumomo：运行 `oumomo-agent setup`，并让我在打开的浏览器中完成登录。
-3. 安装配套 Skill：运行 `npx skills add Oumomo-Video/oumomo-skill`。
-
-完成后重启 Agent，并告诉我是否已经准备好。之后严格按照 Skill 调用 oumomo-agent：根据我的商品链接、品类或参考视频推荐真实可访问的爆款视频；确认参考方向和商品素材后，整理复刻 Prompt 与生成参数供我确认；只有在我明确确认后才提交视频生成。不要调用远程 Agent 或 Chat 接口。
-```
 
 ## 为什么拆成 Skill + CLI？
 
