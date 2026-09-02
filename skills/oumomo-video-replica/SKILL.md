@@ -1,6 +1,10 @@
 ---
 name: oumomo-video-replica
-description: 通过 Oumomo CLI 从商品链接、品类或参考视频中推荐真实可访问的爆款视频；选定参考后收集商品图片、多角度白底图、复刻提示词和修改要求，确认生成参数并生成视频。
+description: Recommend real viral TikTok references for a product category or product link, or treat a TikTok video URL as the chosen reference; collect product images, remake Prompt, and generation settings; confirm every parameter before generating a shoppable video via the Oumomo CLI. 从商品链接、品类或参考视频推荐真实可访问的爆款视频，确认生成参数后产出带货视频。触发词：爆款复刻 / viral remake / 商品链接转视频 / product link to video / TikTok Shop / FastMoss / 参考视频翻拍 / oumomo.
+when_to_use: Use when the user wants viral ecommerce video references, a remake of a TikTok reference video, or a video generated from a TikTok Shop / FastMoss product-detail URL. NOT for standalone scripts, image-only generation, video deduplication, or publishing/uploading the finished video.
+license: MIT
+allowed-tools: Bash(oumomo-agent:*)
+tags: [ecommerce, video, tiktok, viral, marketing]
 ---
 
 # Oumomo Viral Remake

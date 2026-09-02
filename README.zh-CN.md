@@ -21,6 +21,10 @@ npx skills add Oumomo-Video/oumomo-skill
 - 读取支持的 TikTok Shop 或 FastMoss 商品链接，并推荐适合该商品的参考方向。
 - 上传一张或多张商品图，整理复刻 Prompt 和生成参数，只有在用户明确确认后才提交生成。
 
+## 仓库中的 Skill
+
+- [`skills/oumomo-video-replica`](skills/oumomo-video-replica/SKILL.md) — 爆款视频复刻与商品链接转视频两条工作流，随 `npx skills add Oumomo-Video/oumomo-skill` 一并安装。
+
 ## 把这段话发给你的 Agent
 
 ```text

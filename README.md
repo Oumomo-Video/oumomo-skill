@@ -21,6 +21,10 @@ Restart your agent after installation. Verify the CLI with `oumomo-agent --versi
 - Reads supported TikTok Shop and FastMoss product links and recommends suitable creative references.
 - Uploads one or several product images, prepares the remake Prompt and generation settings, and submits only after explicit confirmation.
 
+## Skills in this repository
+
+- [`skills/oumomo-video-replica`](skills/oumomo-video-replica/SKILL.md) — viral video remake and product-link-to-video workflows, installed together with `npx skills add Oumomo-Video/oumomo-skill`.
+
 ## Give this to your agent
 
 ```text
